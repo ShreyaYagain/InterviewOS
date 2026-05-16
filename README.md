@@ -33,13 +33,28 @@ A dependency-free, in-browser SQL engine and a multi-language coding environment
 
 ---
 
-## 🛠️ Tech Stack
+## 🏛️ Technical Architecture
 
-- **Frontend:** Vanilla JavaScript, Vite, CSS3 (Glassmorphism & Matrix aesthetics)
-- **AI Layer:** AntiGravity Agent (Grok xAI / Llama 3.3 via Groq)
-- **Backend:** Supabase (Auth, DB, Vector Store)
-- **Tools:** Monaco Editor, CodeMirror, Excalidraw, React (Core UI Components)
-- **Storage:** Supabase Storage for Diagrams and Reports
+InterviewOS is built with a modular, agent-centric architecture designed for scalability and low latency.
+
+### 🧱 Component Breakdown
+- **Core Engine (`src/engine/`)**: Orchestrates interview state and agent interactions.
+- **AI Service (`src/services/aiService.js`)**: Interfaces with Grok xAI and Llama 3.3 for high-fidelity reasoning.
+- **UI System**: Vanilla JS components with Matrix-inspired CSS for a high-performance, distraction-free experience.
+- **Persistence**: Supabase integration for session tracking, diagram storage, and candidate reports.
+
+For a deeper dive, see the [Architecture Documentation](ARCHITECTURE.md).
+
+---
+
+## 📋 Project Roadmap & Requirements
+This project was built following the strict requirements outlined in our **[Product Requirements Document](PRD.md)**. 
+
+### Current Milestone: Phase 1 (MVP)
+- [x] JD Upload & Analysis
+- [x] FOSS Repository Discovery
+- [x] Excalidraw Diagram Critique
+- [x] Core FAANG Simulator (DSA Round)
 
 ---
 

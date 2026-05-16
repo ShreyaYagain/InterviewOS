@@ -9,18 +9,21 @@ The heart of the application. It manages the interview state, agent interactions
 - `interviewEngine.js`: Orchestrates the flow between different interview rounds.
 - `agents.js`: Handles communication with the AI providers (Grok/Groq).
 - `rubricScorer.js`: Uses AI to score candidate responses against a structured FAANG rubric.
+- `dsaRound.js`: Specific logic for the Coding/Algorithms round, including test case validation.
 
 ### 2. **UI Components (`src/components/`)**
 Modular UI elements designed with a "Cyberpunk" aesthetic.
-- `codeEditor.js`: Integration with Monaco Editor and CodeMirror.
-- `chat.js`: The interactive interface for behavioral and system design rounds.
-- `sidebar.js`: Global navigation system.
+- `codeEditor.js`: Integration with Monaco Editor and CodeMirror for a high-performance IDE feel.
+- `chat.js`: The interactive interface for behavioral and system design rounds, supporting streaming responses.
+- `sidebar.js`: Global navigation system with state-aware active links.
+- `timer.js`: High-precision interview timer with "strict mode" integration.
 
 ### 3. **Pages (`src/pages/`)**
 Main view controllers for different application states.
 - `home.js`: Landing page and interview configuration.
 - `jdParser.js`: The interface for uploading and analyzing Job Descriptions.
 - `sqlPlayground.js`: In-browser SQL execution environment.
+- `report.js`: Dynamic report generator that visualizes AI-driven performance metrics.
 
 ### 4. **Libraries (`src/lib/`)**
 Utility libraries and custom engines.
@@ -36,11 +39,14 @@ Utility libraries and custom engines.
 5. **Report:** A final `renderReportPage` displays the performance breakdown.
 
 ## 🎨 Design System
-- **Theme:** Dark mode by default.
-- **Colors:** Matrix Green (`#00FF41`), Deep Black (`#0d0d0d`), Indigo, Emerald.
-- **Typography:** Monospace fonts for a technical, developer-centric feel.
+- **Theme:** Dark mode by default using the "Matrix Green" palette.
+- **Colors:** 
+  - `Primary`: `#00FF41` (Matrix Green)
+  - `Background`: `#0d0d0d` (Deep Black)
+  - `Accents`: Indigo, Emerald, Rose (for status signals)
+- **Typography:** Monospace fonts (JetBrains Mono/Inter) for a technical, developer-centric feel.
 
-## 🔒 Security
-- Environment variables are managed via Vite's `.env` system.
-- Supabase is used for secure authentication and data persistence.
-- GitHub tokens are required for real-time FOSS repository searching.
+## 🔒 Security & Performance
+- **Environment Management**: Vite's `.env` system ensures secrets stay out of the bundle.
+- **Lazy Loading**: Components are modularized to keep the initial payload light.
+- **Offline Capability**: The MiniSQL engine and core logic are designed to function with minimal network dependency.
