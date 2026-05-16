@@ -3,7 +3,8 @@ node_modules/
 .pnp
 .pnp.js
 
-# Next.js
+# Build output
+dist/
 .next/
 out/
 build/
@@ -32,3 +33,9 @@ Thumbs.db
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Development scratch files
+scratch/
+
+# Gemini/Antigravity workspace
+.gemini/
