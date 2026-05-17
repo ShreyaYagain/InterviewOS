@@ -107,7 +107,7 @@ const AtomCompiler = () => {
       setOutput({
         output: allPassed ? "SUCCESS: All test cases passed!" : "CANCELLED: Some test cases failed.",
         status: allPassed ? 'success' : 'error',
-        poweredBy: 'Wandbox Verification'
+        poweredBy: 'Wandbox'
       });
     } catch (err) {
       setOutput({ output: "Test execution failed: " + err.message, status: 'error' });
