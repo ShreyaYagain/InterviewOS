@@ -36,6 +36,12 @@ next-env.d.ts
 
 # Development scratch files
 scratch/
+prompt.md
+Task.md
+progress.txt
+_fast_uploader.html
+_upload_bundle.json
+_uploader.html
 
 # Gemini/Antigravity workspace
 .gemini/

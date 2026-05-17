@@ -33,6 +33,10 @@ export function renderSidebar(container, activePage = 'home') {
           ${activePage === 'tracker' ? '<span class="nav-prefix">> </span>' : ''}
           <span>tracker</span>
         </button>
+        <button class="sidebar-nav-item ${activePage === 'role-match' ? 'active' : ''}" data-page="role-match">
+          ${activePage === 'role-match' ? '<span class="nav-prefix">> </span>' : ''}
+          <span>role_match</span>
+        </button>
 
         <div class="sidebar-section-label">// resources</div>
         <button class="sidebar-nav-item ${activePage === 'resources' ? 'active' : ''}" data-page="resources">
@@ -77,17 +81,18 @@ export function renderSidebar(container, activePage = 'home') {
         </button>
         <button class="sidebar-nav-item ${activePage === 'groq' ? 'active' : ''}" data-page="groq">
           ${activePage === 'groq' ? '<span class="nav-prefix">> </span>' : ''}
-          <span>groq_playground</span>
+          <span>doubts_bot</span>
         </button>
         <button class="sidebar-nav-item ${activePage === 'sql-playground' ? 'active' : ''}" data-page="sql-playground">
           ${activePage === 'sql-playground' ? '<span class="nav-prefix">> </span>' : ''}
-          <span>sql_playground</span>
+          <span>sql_compiler</span>
         </button>
       </nav>
 
-      <div class="sidebar-footer">
-        <button class="sidebar-nav-item auth-toggle" id="auth-toggle">
-          <span>${isAdmin ? 'admin_mode: unlock' : 'admin_mode: lock'}</span>
+      <div class="sidebar-footer" style="border-top: 1px solid #1a1a1a; margin-top: auto; padding-top: 16px;">
+        <button class="sidebar-nav-item ${activePage === 'about' ? 'active' : ''}" data-page="about">
+          ${activePage === 'about' ? '<span class="nav-prefix">> </span>' : ''}
+          <span>about</span>
         </button>
       </div>
     </div>
@@ -108,54 +113,4 @@ export function renderSidebar(container, activePage = 'home') {
     });
   });
 
-  // Auth toggle
-  container.querySelector('#auth-toggle').addEventListener('click', () => {
-    if (isAdmin) {
-      auth.logout();
-      router.navigate(window.location.hash.slice(1) || '/');
-    } else {
-      showAuthModal(container);
-    }
-  });
-}
-
-function showAuthModal(container) {
-  const overlay = document.createElement('div');
-  overlay.className = 'auth-modal-overlay';
-  overlay.innerHTML = `
-    <div class="auth-modal" style="background:#000; border:1px solid #00FF41; border-radius:0; padding:24px; color:#fff; font-family:'JetBrains Mono', monospace;">
-      <h3 style="color:#00FF41; font-size:16px; margin-bottom:16px;">// admin_access</h3>
-      <p style="font-size:12px; color:#6B7280; margin-bottom:20px;">enter password to unlock administrative protocols.</p>
-      <input type="password" id="auth-password" placeholder="password..." autofocus 
-        style="width:100%; background:#000; border:1px solid #333; padding:10px; color:#fff; font-family:inherit; font-size:14px; outline:none; margin-bottom:12px;"
-        onfocus="this.style.borderColor='#00FF41'" onblur="this.style.borderColor='#333'" />
-      <div class="auth-error" id="auth-error" style="display:none; color:#FF0000; font-size:10px; margin-bottom:12px;">authentication_failed: incorrect credentials</div>
-      <div class="auth-modal-btns" style="display:flex; justify-content:flex-end; gap:12px;">
-        <button id="auth-cancel" style="background:transparent; border:none; color:#6B7280; font-family:inherit; cursor:pointer; font-size:12px;">cancel</button>
-        <button id="auth-submit" style="background:#00FF41; border:none; color:#000; padding:6px 16px; font-family:inherit; cursor:pointer; font-size:12px; font-weight:700;">unlock</button>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(overlay);
-
-  const input = overlay.querySelector('#auth-password');
-  const error = overlay.querySelector('#auth-error');
-
-  overlay.querySelector('#auth-cancel').addEventListener('click', () => overlay.remove());
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
-
-  function submit() {
-    if (auth.login(input.value)) {
-      overlay.remove();
-      router.navigate(window.location.hash.slice(1) || '/');
-    } else {
-      error.style.display = 'block';
-      input.value = '';
-      input.focus();
-    }
-  }
-
-  overlay.querySelector('#auth-submit').addEventListener('click', submit);
-  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
-  input.focus();
 }

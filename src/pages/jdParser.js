@@ -54,11 +54,6 @@ export function renderJDParserPage(container) {
           </div>
         </div>
 
-        <div class="jd-input-right">
-          <div class="jd-placeholder-panel">
-            <div class="jd-placeholder-text">// analysis_output will appear here</div>
-          </div>
-        </div>
       </div>
 
       <!-- Loading State -->
@@ -408,8 +403,8 @@ function addJDStyles(container) {
       color: #00FF41; font-family: var(--font-mono); text-transform: lowercase;
     }
 
-    .jd-input-section { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; width: 100%; max-width: none; }
-    .jd-input-left, .jd-input-right { width: 100%; }
+    .jd-input-section { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; width: 100%; max-width: none; }
+    .jd-input-left { width: 100%; }
     .jd-input-card { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 6px; padding: 32px; height: 100%; box-sizing: border-box; }
     .jd-label-mono { font-family: var(--font-mono); color: #00FF41; font-size: 12px; margin-bottom: 16px; display: block; }
     .jd-textarea {
@@ -421,11 +416,7 @@ function addJDStyles(container) {
     .jd-input-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
     .jd-char-count { font-family: var(--font-mono); font-size: 11px; color: #6B7280; }
 
-    .jd-placeholder-panel {
-        height: 100%; min-height: 300px; background: #0d0d0d; border: 1px solid #1a1a1a;
-        display: flex; align-items: center; justify-content: center; border-radius: 6px; width: 100%;
-    }
-    .jd-placeholder-text { font-family: var(--font-mono); font-size: 13px; color: #374151; }
+
 
     .jd-loading { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 48px; width: 100%; }
     .jd-loading-spinner { width: 24px; height: 24px; border: 2px solid #1a1a1a; border-top-color: #00FF41; border-radius: 50%; animation: spin 0.8s linear infinite; }
@@ -492,8 +483,7 @@ function addJDStyles(container) {
     .jd-chat-input-row input:focus { border-color: #00FF41; }
 
     @media (max-width: 1024px) {
-        .jd-input-section { grid-template-columns: 1fr; }
-        .jd-placeholder-panel { display: none; }
+        /* No overrides needed since base is already 1 column */
     }
     `;
     container.appendChild(style);

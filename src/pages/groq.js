@@ -8,8 +8,8 @@ export function renderGroqPage(container) {
     container.innerHTML = `
     <div class="page-container groq-page">
       <div class="groq-header">
-        <h1 class="page-title">// groq_playground</h1>
-        <p class="page-subtitle">Direct access to Llama 3.3 70B via Groq API.</p>
+        <h1 class="page-title">// doubts_bot</h1>
+        <p class="page-subtitle" style="font-family: 'Inter', sans-serif; font-size: 13px;">clarify your doubts on DSA, system design, coding concepts, and interview prep.</p>
       </div>
 
       <div class="groq-playground-card animate-fade-in-up">

@@ -18,6 +18,7 @@ import { renderResourcesPage } from './pages/resources.js';
 import { renderHLDPracticePage } from './pages/hldPractice.js';
 import { renderStudyPlannerPage } from './pages/studyPlanner.js';
 import { renderTrackerPage } from './pages/tracker.js';
+import { renderRoleMatchPage } from './pages/roleMatch.js';
 import { renderJDParserPage } from './pages/jdParser.js';
 import { renderSolidPrinciplesPage } from './pages/lld/solidPrinciples.js';
 import { renderCreationalPatternsPage } from './pages/lld/creationalPatterns.js';
@@ -27,6 +28,7 @@ import { renderResumePage } from './pages/resume.js';
 import { renderCompilerPage } from './pages/compiler.js';
 import { renderGroqPage } from './pages/groq.js';
 import { renderSQLPlaygroundPage } from './pages/sqlPlayground.js';
+import { renderAboutPage } from './pages/about.js';
 
 const app = document.getElementById('app');
 
@@ -63,6 +65,7 @@ router
   .on('/hld-practice', withSidebar(renderHLDPracticePage, 'hld-practice'))
   .on('/study-planner', withSidebar(renderStudyPlannerPage, 'study-planner'))
   .on('/tracker', withSidebar(renderTrackerPage, 'tracker'))
+  .on('/role-match', withSidebar(renderRoleMatchPage, 'role-match'))
   .on('/jd-parser', withSidebar(renderJDParserPage, 'jd-parser'))
   .on('/lld-resources/solid-principles', withSidebar(renderSolidPrinciplesPage, 'resources'))
   .on('/lld-resources/creational-patterns', withSidebar(renderCreationalPatternsPage, 'resources'))
@@ -74,6 +77,7 @@ router
   .on('/sql-playground', withSidebar(renderSQLPlaygroundPage, 'sql-playground'))
   .on('/interview', fullScreen(renderInterviewPage))
   .on('/report', withSidebar(renderReportPage, 'report'))
+  .on('/about', withSidebar(renderAboutPage, 'about'))
   .on('*', withSidebar(renderHomePage, 'home'));
 
 // Start

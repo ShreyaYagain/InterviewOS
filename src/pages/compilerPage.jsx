@@ -55,7 +55,7 @@ const AtomCompiler = () => {
         setOutput({
           output: result.success ? (result.output || 'Execution complete (no output)') : (result.error || result.output || 'Unknown error'),
           status: result.success ? 'success' : 'error',
-          poweredBy: 'Judge0 CE'
+          poweredBy: 'Wandbox'
         });
       } else if (mode === 'explain_test_cases') {
         const testCaseStr = problem?.testCases.map((tc, i) => `Test Case ${i+1}: Input=${tc.stdin}, Expected=${tc.expectedOutput}`).join('\n');
@@ -107,7 +107,7 @@ const AtomCompiler = () => {
       setOutput({
         output: allPassed ? "SUCCESS: All test cases passed!" : "CANCELLED: Some test cases failed.",
         status: allPassed ? 'success' : 'error',
-        poweredBy: 'Judge0 CE Verification'
+        poweredBy: 'Wandbox Verification'
       });
     } catch (err) {
       setOutput({ output: "Test execution failed: " + err.message, status: 'error' });

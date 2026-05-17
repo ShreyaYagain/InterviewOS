@@ -51,7 +51,7 @@ export function renderSQLPlaygroundPage(container) {
     <div class="sqlpg-left">
       <div class="sqlpg-editor-card">
         <div class="sqlpg-editor-header">
-          <span class="mono-label">// query.sql</span>
+          <span class="mono-label">// sql_compiler</span>
           <div class="sqlpg-header-actions">
             <select id="sql-snippet-select" class="snippet-select">
               <option value="">— sample queries —</option>
@@ -262,7 +262,7 @@ function addStyles(container) {
     const style = document.createElement('style');
     style.id = 'sqlpg-styles';
     style.textContent = `
-    .sqlpg-page { width:100%; max-width:none; padding-top:8px; }
+    .sqlpg-page { width: 100%; max-width: 100%; padding-top: 8px; overflow-x: hidden; box-sizing: border-box; }
     .sqlpg-header { margin-bottom:28px; }
     .sqlpg-title-row { display:flex; align-items:center; gap:16px; margin-bottom:6px; }
     .sqlpg-title { font-family:var(--font-mono); font-size:28px; font-weight:700; color:#fff; }
@@ -274,7 +274,7 @@ function addStyles(container) {
     .sqlpg-subtitle { font-size:13px; color:#6B7280; font-family:'Inter',sans-serif; }
 
     /* LAYOUT */
-    .sqlpg-layout { display:grid; grid-template-columns:1fr 320px; gap:20px; align-items:start; }
+    .sqlpg-layout { display: grid; grid-template-columns: 1fr 280px; gap: 16px; align-items: start; width: 100%; }
     .sqlpg-left { display:flex; flex-direction:column; gap:16px; }
     .sqlpg-right { display:flex; flex-direction:column; gap:16px; position:sticky; top:20px; }
 

@@ -58,10 +58,6 @@ export function renderHomePage(container) {
       <div class="ai-engine-banner animate-fade-in-up" id="jd-feature-card">
         <div class="ai-engine-left">
           <div class="ai-engine-content">
-            <div class="ai-status">
-              <span class="pulse-dot"></span>
-              <span class="ai-status-text">AntiGravity Agent — Live</span>
-            </div>
             <h3 class="ai-engine-title">Job Description Analyzer</h3>
             <p class="ai-engine-desc">Paste any JD and get a custom Take-Home assessment, FOSS repos, and FAANG rubric — powered by Grok xAI.</p>
             <div class="ai-engine-pills">

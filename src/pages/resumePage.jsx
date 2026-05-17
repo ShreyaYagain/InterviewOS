@@ -35,16 +35,7 @@ const ResumePageContent = () => {
 
   return (
     <div className="resume-page-wrapper">
-      {/* Hero Banner */}
-      <div className="resume-hero animate-fade-in-up">
-        <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} scale={1.02}>
-          <div className="hero-content">
-            <span className="hero-label">// resume_generator</span>
-            <h1 className="hero-title">build your resume in minutes</h1>
-            <p className="hero-subtitle">fill the form → live pdf preview → download. no login.</p>
-          </div>
-        </Tilt>
-      </div>
+
 
       <div className="resume-main-header">
         <div className="header-left">
