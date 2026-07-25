@@ -78,94 +78,24 @@ Data Layer — Static question banks (NeetCode 150 for DSA, 10 LLD, 10 HLD, 10 H
 
 # Project Structure
 
-interviewos/
-├── index.html                  # Vite entry point with SEO meta tags
-├── vite.config.js              # Vite config: React plugin, dev server, API proxy
-├── package.json                # Dependencies & scripts
-├── .env.example                # Environment variable template
-├── .gitignore                  # Git exclusion rules
-├── README.md                   # This file
-├── ARCHITECTURE.md             # Deep technical architecture document
-├── CHANGELOG.md                # Version history
-├── PRD.md                      # Product Requirements Document
+📦 interviewos
+├── 📂 src
+│   ├── 🧩 components
+│   ├── 📄 pages
+│   ├── ⚙️ engine
+│   ├── 🔌 services
+│   ├── 📚 data
+│   ├── 🛠 lib
+│   ├── 🎨 styles
+│   ├── router.js
+│   └── main.js
 │
-├── src/
-│   ├── main.js                 # App bootstrap: imports, route registration, shell
-│   ├── router.js               # Hash-based SPA router (Router class)
-│   │
-│   ├── engine/                 # Core interview orchestration
-│   │   ├── interviewEngine.js  # Finite-state-machine: stages, scores, timing
-│   │   ├── dsaRound.js         # DSA round: clarify → approach → code → test → optimize
-│   │   ├── lldRound.js         # LLD round: requirements → entities → patterns → code
-│   │   ├── hldRound.js         # HLD round: requirements → estimation → architecture → API
-│   │   ├── hrRound.js          # HR round: STAR format evaluation with follow-ups
-│   │   ├── rubricScorer.js     # Score aggregation, strengths/weaknesses, practice plans
-│   │   ├── agents.js           # Agent persona definitions (system prompts)
-│   │   └── api.js              # Groq API client (callGrokAPI, searchGitHubFOSS)
-│   │
-│   ├── services/               # External service integrations
-│   │   ├── aiService.js        # Groq client with JSON parsing & AI review modes
-│   │   ├── codeRunner.js       # Judge0 CE integration (Python, JS, Java, C++)
-│   │   ├── compiler.js         # Compiler service placeholder
-│   │   ├── auth.js             # Simple admin authentication
-│   │   ├── leetcodeService.js  # LeetCode data fetching
-│   │   └── questionParser.js   # Question parsing utilities
-│   │
-│   ├── pages/                  # Page controllers (one per route)
-│   │   ├── home.js             # Dashboard with round selection & config
-│   │   ├── interview.js        # Full-screen interview UI (chat + editor)
-│   │   ├── questions.js        # DSA/SQL question bank browser
-│   │   ├── report.js           # Post-interview performance report
-│   │   ├── jdParser.js         # JD Analyzer with AI parsing & chat
-│   │   ├── hldPractice.js      # HLD MCQ & scenario practice
-│   │   ├── studyPlanner.js     # Customizable study schedule
-│   │   ├── tracker.js          # Progress tracker
-│   │   ├── resources.js        # LLD resource library
-│   │   ├── compiler.js         # Multi-language code editor
-│   │   ├── groq.js             # Groq API playground
-│   │   ├── sqlPlayground.js    # In-browser SQL playground (MiniSQL)
-│   │   ├── resume.js           # Resume builder
-│   │   └── lld/                # LLD deep-dive pages
-│   │       ├── solidPrinciples.js
-│   │       ├── creationalPatterns.js
-│   │       ├── structuralPatterns.js
-│   │       └── behavioralPatterns.js
-│   │
-│   ├── components/             # Reusable UI components
-│   │   ├── sidebar.js          # Navigation sidebar with auth toggle
-│   │   ├── chat.js             # Chat interface (interviewer ↔ candidate)
-│   │   ├── codeEditor.js       # Monaco/CodeMirror code editor
-│   │   ├── timer.js            # Interview countdown timer
-│   │   ├── modal.js            # Modal dialog
-│   │   └── rubricCard.js       # Rubric score display card
-│   │
-│   ├── data/                   # Static data modules
-│   │   ├── questions.js        # Master question registry (DSA + LLD + HLD + HR)
-│   │   ├── neetcode150.js      # NeetCode 150 DSA problem set
-│   │   ├── sqlQuestions.js     # SQL practice questions
-│   │   ├── rubrics.js          # Scoring rubric definitions per round type
-│   │   ├── resources.js        # LLD learning resources
-│   │   ├── hldMCQs.js          # HLD multiple-choice questions
-│   │   ├── hldScenarios.js     # HLD design scenarios
-│   │   └── plans.js            # Study plan templates
-│   │
-│   ├── lib/                    # Utility libraries
-│   │   ├── miniSQL.js          # Custom in-browser SQL engine (zero dependencies)
-│   │   ├── questions.js        # Question helper utilities
-│   │   ├── resumeStore.js      # Resume state management
-│   │   └── resumeConfig.js     # Resume builder configuration
-│   │
-│   └── styles/                 # CSS modules
-│       ├── index.css           # Design tokens, reset, global components
-│       ├── layout.css          # App shell, sidebar, content layout
-│       ├── chat.css            # Chat component styles
-│       ├── editor.css          # Code editor styles
-│       ├── report.css          # Report page styles
-│       ├── compiler.css        # Compiler page styles
-│       └── resume.css          # Resume builder styles
-│
-├── dist/                       # Production build output
-└── scratch/                    # Development test scripts
+├── 📄 README.md
+├── 📄 ARCHITECTURE.md
+├── 📄 PRD.md
+├── 📦 package.json
+├── ⚡ vite.config.js
+└── 🔑 .env.example
 
 
 ## 🚀 Future Roadmap
