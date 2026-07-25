@@ -78,29 +78,29 @@ Data Layer — Static question banks (NeetCode 150 for DSA, 10 LLD, 10 HLD, 10 H
 
 # Project Structure
 
-interviewos/
-│
-├── src/
-│   ├── components/        # Reusable UI components
-│   ├── pages/             # Dashboard, Interview, Reports, Resume Builder
-│   ├── engine/            # Interview Engine (DSA, LLD, HLD, HR)
-│   ├── services/          # AI, Judge0, GitHub & Authentication
-│   ├── data/              # Question Banks & Study Plans
-│   ├── lib/               # MiniSQL & Utility Functions
-│   ├── styles/            # Global Styles
+<h2>📂 Project Structure</h2>
+
+<pre>
+interviewos
+├── src
+│   ├── components
+│   ├── pages
+│   ├── engine
+│   ├── services
+│   ├── data
+│   ├── lib
+│   ├── styles
 │   ├── router.js
 │   └── main.js
-│
-├── public/
-├── dist/
-│
+├── public
+├── dist
 ├── README.md
 ├── ARCHITECTURE.md
 ├── PRD.md
 ├── package.json
 ├── vite.config.js
 └── .env.example
-
+</pre>
 
 
 ## 🚀 Future Roadmap
