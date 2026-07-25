@@ -80,13 +80,21 @@ Data Layer — Static question banks (NeetCode 150 for DSA, 10 LLD, 10 HLD, 10 H
 
 📦 interviewos
 ├── 📂 src
+
 │   ├── 🧩 components
+
 │   ├── 📄 pages
+
 │   ├── ⚙️ engine
+
 │   ├── 🔌 services
+
 │   ├── 📚 data
+
 │   ├── 🛠 lib
+
 │   ├── 🎨 styles
+
 │   ├── router.js
 │   └── main.js
 │
