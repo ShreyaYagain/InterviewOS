@@ -18,6 +18,7 @@ The platform generates personalized interview experiences based on job descripti
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-00FF41?style=for-the-badge)](https://interview-os-sooty.vercel.app)
 
+# Features
 
 - 🤖 AI Mock Interviews (DSA, LLD, HLD & HR)
 - 📄 AI Job Description Analyzer
