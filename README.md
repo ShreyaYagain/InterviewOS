@@ -1,105 +1,83 @@
-<!-- badges -->
-![Build](https://img.shields.io/badge/build-passing-00FF41?style=flat-square&logo=vite&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.0.0-00FF41?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-00FF41?style=flat-square)
-![JS](https://img.shields.io/badge/javascript-ES2024-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 
 # ⚡ InterviewOS
 
-**Agentic Talent Engine for FAANG Mastery**
+### AI-Powered Interview Preparation Platform for Software Engineers
 
-InterviewOS is an autonomous, AI-driven interview preparation platform that closes the gap between *knowing* and *performing*. It generates hyper-relevant assessments from real Job Descriptions, simulates high-pressure FAANG interview rounds across 4 disciplines, and critiques architectural diagrams — all powered by the **AntiGravity Agent** layer (Llama 3.3 70B via Groq).
+Prepare for technical interviews with AI-powered mock interviews, coding challenges, system design practice, personalized study plans, and resume analysis — all in one place.
 
-> **Who is this for?** CS students, bootcamp graduates, and engineers preparing for FAANG-caliber interviews who want structured, agentic practice — not generic LeetCode grinding.
 
----
+## 🚀 About
 
-## 📋 Table of Contents
+InterviewOS is a full-stack interview preparation platform built to help students prepare for software engineering placements.
 
-- [Overview](#-interviewos)
-- [System Requirements](#-system-requirements)
-- [Quickstart](#-quickstart)
-- [Configuration](#%EF%B8%8F-configuration)
-- [Architecture Overview](#-architecture-overview)
-- [Directory Structure](#-directory-structure)
-- [Features & API Reference](#-features--api-reference)
-- [Known Issues & Limitations](#-known-issues--limitations)
-- [Contributing](#-contributing)
-- [License](#-license)
+Instead of switching between multiple websites for coding practice, mock interviews, resume building, SQL practice, and study planning, InterviewOS brings everything together into one AI-powered platform.
 
----
+The platform generates personalized interview experiences based on job descriptions and provides structured feedback to improve technical and behavioral interview performance.
 
-## 💻 System Requirements
 
-| Requirement  | Version / Detail                                  |
-| ------------ | ------------------------------------------------- |
-| **OS**       | macOS, Linux, Windows (WSL recommended)           |
-| **Node.js**  | v18.0+ (v20 LTS recommended)                     |
-| **npm**      | v9.0+                                             |
-| **Browser**  | Chrome 120+, Firefox 120+, Edge 120+              |
-| **AI API**   | Groq API key (free tier: [console.groq.com](https://console.groq.com)) |
+[![Live Demo](https://img.shields.io/badge/Live-Demo-00FF41?style=for-the-badge)](https://interview-os-sooty.vercel.app)
 
----
 
-## 🚀 Quickstart
+- 🤖 AI Mock Interviews (DSA, LLD, HLD & HR)
+- 📄 AI Job Description Analyzer
+- 📚 Personalized Study Planner
+- 💻 SQL Playground
+- ⚡ Online Code Compiler
+- 🧠 AI Code Debugger
+- 📈 Performance Reports
+- 📝 Resume Builder
+- 📂 Learning Resources
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/Saiankitpanda/interviewos.git
-cd interviewos
 
-# 2. Install dependencies
-npm install
+## 🛠 Tech Stack
 
-# 3. Set up environment variables
-cp .env.example .env
-# Edit .env and add your API keys (see Configuration below)
+### Frontend
+- JavaScript
+- HTML
+- CSS
+- Vite
 
-# 4. Start the development server
-npm run dev
+### AI
+- Groq API
+- Llama 3.3 70B
 
-# 5. Open in browser
-# → http://localhost:5173
-```
+### Backend & Services
+- Supabase
+- Judge0
+- GitHub API
 
----
+### Tools
+- Git
+- GitHub
 
-## ⚙️ Configuration
 
-All configuration is managed through environment variables in the `.env` file. See `.env.example` for a template.
+## 💡 Why InterviewOS?
 
-| Parameter              | Type     | Default                              | Description                                              |
-| ---------------------- | -------- | ------------------------------------ | -------------------------------------------------------- |
-| `VITE_SUPABASE_URL`    | `string` | —                                    | Your Supabase project URL for auth and persistence       |
-| `VITE_SUPABASE_ANON_KEY` | `string` | —                                  | Supabase anonymous/public key                            |
-| `VITE_GROQ_API_KEY`    | `string` | —                                    | **Required.** Groq API key for Llama 3.3 70B inference   |
-| `VITE_GROK_BASE_URL`   | `string` | `https://api.groq.com/openai/v1`    | Groq API base URL                                        |
-| `VITE_GROK_MODEL`      | `string` | `llama-3.3-70b-versatile`           | Model identifier for inference                           |
-| `VITE_GITHUB_TOKEN`    | `string` | —                                    | GitHub PAT for FOSS repository search (5000 req/hr)      |
-| `VITE_JUDGE0_HOST`     | `string` | `judge0-ce.p.rapidapi.com`          | Judge0 CE host for code execution                        |
-| `VITE_JUDGE0_API_KEY`  | `string` | —                                    | RapidAPI key for Judge0 code execution service           |
+Most students prepare for interviews using several disconnected platforms:
+• LeetCode for DSA
+• YouTube for System Design
+• ChatGPT for HR Questions
+• Resume builders
+• SQL websites
+InterviewOS combines these into one intelligent platform that adapts preparation based on the student's goals and target companies.
 
----
 
-## 🏛️ Architecture Overview
+# Architecture
 
-InterviewOS follows a **modular, agent-centric SPA architecture** built on Vite + Vanilla JS. The system is decomposed into four layers:
+InterviewOS follows a modular, agent-centric SPA architecture built on Vite + Vanilla JS. The system is decomposed into four layers:
 
-1. **Presentation Layer** — Hash-based SPA router (`src/router.js`) dispatches to page controllers. Each page is a self-contained module that renders into a sidebar+content shell. Styling uses a strict design token system (CSS custom properties) with a "Matrix Terminal" aesthetic.
+Presentation Layer — Hash-based SPA router (src/router.js) dispatches to page controllers. Each page is a self-contained module that renders into a sidebar+content shell. Styling uses a strict design token system (CSS custom properties) with a "Matrix Terminal" aesthetic.
 
-2. **Interview Engine Layer** — A finite-state-machine (`InterviewEngine`) orchestrates interview flow. Round-specific handlers (`DSARound`, `LLDRound`, `HLDRound`, `HRRound`) implement stage transitions, NLP-based response scoring (regex pattern matching on candidate answers), and hint management. A `RubricScorer` aggregates scores into a FAANG-style rubric report.
+Interview Engine Layer — A finite-state-machine (InterviewEngine) orchestrates interview flow. Round-specific handlers (DSARound, LLDRound, HLDRound, HRRound) implement stage transitions, NLP-based response scoring (regex pattern matching on candidate answers), and hint management. A RubricScorer aggregates scores into a FAANG-style rubric report.
 
-3. **AI Service Layer** — The `AntiGravity Agent` communicates with Groq's OpenAI-compatible API (Llama 3.3 70B). Agent profiles define distinct system prompts for different personas (JD Parser, Code Reviewer, HR Interviewer, Notanki Interviewer). A fallback mechanism ensures the app functions even without API connectivity by using the engine's built-in NLP responses.
+AI Service Layer — The AntiGravity Agent communicates with Groq's OpenAI-compatible API (Llama 3.3 70B). Agent profiles define distinct system prompts for different personas (JD Parser, Code Reviewer, HR Interviewer, Notanki Interviewer). A fallback mechanism ensures the app functions even without API connectivity by using the engine's built-in NLP responses.
 
-4. **Data Layer** — Static question banks (NeetCode 150 for DSA, 10 LLD, 10 HLD, 10 HR questions), rubric definitions, and study plans are embedded as ES modules. A custom in-browser SQL engine (`MiniSQL`) enables SQL practice without any backend dependency.
+Data Layer — Static question banks (NeetCode 150 for DSA, 10 LLD, 10 HLD, 10 HR questions), rubric definitions, and study plans are embedded as ES modules. A custom in-browser SQL engine (MiniSQL) enables SQL practice without any backend dependency.
 
-> 📖 For a deep technical breakdown of every component, see **[ARCHITECTURE.md](ARCHITECTURE.md)**.
+📖 For a deep technical breakdown of every component, see ARCHITECTURE.md.
 
----
+# Project Structure
 
-## 📁 Directory Structure
-
-```
 interviewos/
 ├── index.html                  # Vite entry point with SEO meta tags
 ├── vite.config.js              # Vite config: React plugin, dev server, API proxy
@@ -188,94 +166,20 @@ interviewos/
 │
 ├── dist/                       # Production build output
 └── scratch/                    # Development test scripts
-```
 
----
 
-## 🎯 Features & API Reference
+## 🚀 Future Roadmap
 
-### 1. FAANG Interview Simulator
+- Voice Interview Simulation
+- AI Resume Review
+- Company-specific Interview Tracks
+- Progress Analytics
+- Collaborative Mock Interviews
+- Authentication & User Profiles
 
-Simulates 4 interview round types with an AI interviewer:
+## 🎥 Demo
 
-| Round       | Stages                                              | Duration | Scoring Dimensions                                    |
-| ----------- | --------------------------------------------------- | -------- | ----------------------------------------------------- |
-| **DSA**     | Clarify → Approach → Code → Test → Optimize → Wrap  | 45 min   | Understanding, Correctness, Optimality, Code Quality, Testing, Communication |
-| **LLD**     | Requirements → Entities → Relationships → Patterns → Code → Wrap | 45 min   | Requirements, Entity Design, SOLID, Patterns, Extensibility, Communication |
-| **HLD**     | Requirements → Estimation → Architecture → Data Model → API → Tradeoffs → Wrap | 45 min   | Scale Awareness, Architecture, Data Model, Tradeoffs, Reliability, Communication |
-| **HR**      | Question → Follow-up 1 → Follow-up 2 → Follow-up 3 → Wrap | 30 min   | Clarity, Ownership, Impact, Reflection, Collaboration |
+Watch InterviewOS in action.
 
-### 2. JD Analyzer (AntiGravity Agent)
+https://youtu.be/hYt58Co-hJM
 
-Paste any Job Description → receive:
-- Tech stack detection
-- Custom Take-Home assessment with stretch goals
-- FOSS repository recommendations
-- FAANG evaluation rubric
-- Personalized 5-7 day study plan
-- YouTube channel recommendations
-
-### 3. Question Banks
-
-- **DSA**: NeetCode 150 (complete set with examples, constraints, solutions)
-- **SQL**: Practice queries with in-browser MiniSQL engine
-- **LLD**: 10 design problems (Parking Lot, Rate Limiter, Chess, etc.)
-- **HLD**: 10 system design problems (URL Shortener, Chat, Search Engine, etc.)
-- **HR**: 10 behavioral questions with STAR evaluation
-
-### 4. MiniSQL Engine
-
-A zero-dependency, in-browser SQL engine supporting:
-`SELECT`, `FROM`, `JOIN`, `LEFT JOIN`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY`, `LIMIT`, `DISTINCT`, `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`, `ROUND`, `IFNULL`, `IS NULL`, `IS NOT NULL`, `LIKE`, `IN`, `AND`, `OR`, `WITH` (CTEs)
-
-### 5. Code Execution (Judge0 CE)
-
-Multi-language support: Python (92), JavaScript (93), Java (91), C++ (54).
-Includes auto-renaming of Java `class Solution` → `class Main` for Judge0 compatibility.
-
-### 6. AI-Powered Tools
-
-- **Code Debugger**: AI finds bugs and suggests fixes
-- **Code Explainer**: Step-by-step explanation with complexity analysis
-- **Code Optimizer**: Time/space optimization suggestions
-- **Groq Playground**: Direct chat with Llama 3.3 70B
-
----
-
-## ⚠️ Known Issues & Limitations
-
-| Issue | Severity | Notes |
-| ----- | -------- | ----- |
-| Compiler service is a stub | Low | `src/services/compiler.js` returns placeholder. Use Judge0 via `codeRunner.js` instead. |
-| `searchGitHubFOSS` returns hardcoded repos | Low | The function in `api.js` returns static data. Live GitHub API integration is planned for Phase 2. |
-| No persistent user sessions | Medium | Interview history is stored only in-memory. Supabase integration is scaffolded but not fully wired. |
-| `callClaude` is a Groq alias | Info | The `callClaude` export in `aiService.js` is a backward-compat alias that calls Groq, not Anthropic. |
-| Resume builder uses React | Info | `src/pages/resumePage.jsx` and `src/components/resume/` use React/JSX within an otherwise Vanilla JS app. Vite handles this via the React plugin. |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome. Please follow these conventions:
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
-3. **Follow** the existing code style (monospace-first UI, ES modules, no TypeScript)
-4. **Commit** with conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`
-5. **Push** and open a **Pull Request**
-
-### Code Style
-- ES modules (`import`/`export`)
-- Vanilla JS page controllers (no framework for pages)
-- CSS custom properties for theming
-- File headers with `// ═══...═══` comment blocks
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
-
----
-
-*Built with 💚 by the InterviewOS Team — Powered by the AntiGravity Agent Layer.*
